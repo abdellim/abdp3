@@ -3,7 +3,6 @@
 <h1 class="page-header" style="text-align: center; margin-top: 70px;">Mes Alertes</h1>       
 
 <div class="well" style="background-color: #EFECCA;">
-
     <table class="table table-striped">
       <thead>
         <tr>
@@ -29,8 +28,6 @@
         </tr>
       </tbody>
       <?php endforeach; ?>
-     
-     
     </table>
 </div>
 <?php $contenu = ob_get_clean(); ?>
