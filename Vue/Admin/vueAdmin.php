@@ -21,7 +21,7 @@
           <td width=30%><?= substr($billet['contenu'], 0, 250) . "..." ?></td>
           <td><?= $billet['date'] ?></td>
           <td>
-              <a class="btn btn-danger" href="indexadmin.php?suppr=<?= $billet['id'] ?> "><i class="fa fa-trash-o" aria-hidden="true"></i> Supprimer</a> 
+              <a class="btn btn-danger" href="indexadmin.php?supprimer=<?= $billet['id'] ?> "><i class="fa fa-trash-o" aria-hidden="true"></i> Supprimer</a> 
               <a class="btn btn-info" href="indexadmin.php?modif=<?= $billet['id'] ?> "><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Modifier</a>
           </td>
         </div>

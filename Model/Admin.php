@@ -58,3 +58,13 @@ function SupAlertes() {
     }
   }
 }
+
+function supBillet() {
+  $bdd = getBdd();
+  if (isset($_GET['supprimer']) AND !empty($_GET['supprimer'])) {
+    $suppr = $_GET['supprimer'];
+    $req = $bdd->prepare('DELETE FROM billets WHERE ID = ?');
+    $req->execute(array($suppr));
+
+  }
+}
