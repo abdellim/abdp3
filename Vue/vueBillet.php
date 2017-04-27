@@ -13,8 +13,8 @@
 </div>
 <nav aria-label="...">
   <ul class="pager">
-    <li class="previous"><a href="#">&larr;Previous</a></li>
-    <li class="next"><a href="#">Next&rarr;</a></li>
+    <li class="Précédent"><a href="index.php?action=billet&id=<?= $billet['ID'] ?>">&larr; Previous</a></li>
+    <li class="Suivant"><a href="index.php?action=billet&id=<?= $billet['ID'] ?>">Next &rarr;</a></li>
   </ul>
 </nav>
 <hr />

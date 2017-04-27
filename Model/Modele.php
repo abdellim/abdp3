@@ -17,7 +17,7 @@ abstract class Modele {
     return $resultat;
   }
 
-  // Renvoie un objet de connexion à la BD en initialisant la connexion au besoin
+  // Renvoie un objet de connexion à la BDD en initialisant la connexion au besoin
   private function getBdd() {
     if ($this->bdd == null) {
       // Création de la connexion
@@ -26,5 +26,4 @@ abstract class Modele {
     }
     return $this->bdd;
   }
-
 }

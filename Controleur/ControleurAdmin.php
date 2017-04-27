@@ -12,6 +12,8 @@ function alerte(){
 
 function admin(){
 	$billets = getBillets();
+	$pageCourante = getBillets();
+	$pagesTotal  = getBillets();
 	$i = getNbreAlertes();
   	require 'Vue/Admin/vueAdmin.php';
 }
@@ -21,12 +23,20 @@ function suppBillet() {
 	$billets = getBillets();
 	require 'Vue/Admin/vueAdmin.php';
 }
+
+function modBillet(){ //affiche le billet à modifier
+	$edireq = modiBillet();
+	$i = getNbreAlertes();
+	require 'Vue/Admin/vueModif.php';
+}
 /*
 function modBillet() {
 	require 'Vue/Admin/vueAdmin.php';
 }
 
-function ajtBillet() {
+function ajoutBillet() {
+	$ajout = ajtBillet();
+
 	require 'Vue/Admin/vueAdmin.php';
 }*/
 

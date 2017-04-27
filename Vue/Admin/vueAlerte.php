@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
 <?php $titre = '| Commentaire signaler'; ?>
 <h1 class="page-header" style="text-align: center; margin-top: 70px;">Mes Alertes</h1>       
-
+<a class="btn btn-success" href="indexadmin.php"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Tableau de bord</a><p></p>
 <div class="well" style="background-color: #EFECCA;">
     <table class="table table-striped">
       <thead>

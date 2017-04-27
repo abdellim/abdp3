@@ -6,9 +6,25 @@ function getBdd(){
 }
 // Renvoie la liste de tous les billets, triés par identifiant décroissant
 function getBillets() {
+  $billetParPage = 3;
   $bdd = getBdd();
-  $billets = $bdd->query('select ID as id, DATE_FORMAT(date_creation, "%d/%m/%Y à %Hh%imin%ss") as date, titre, image, contenu from billets');
+  $billetTotalReq = $bdd->query('select ID FROM billets');
+  $billetTotal = $billetTotalReq->rowCount();
+  $pagesTotal = ceil($billetTotal/$billetParPage);
+ 
+  
+  if (isset($_GET['page']) && !empty($_GET['page']) && $_GET['page'] > 0) {
+    $_GET['page'] = intval($_GET['page']);
+    $pageCourante = $_GET['page'];
+  } else {
+    $pageCourante = 1;
+  }
+  $depart = ($pageCourante-1)*$billetParPage;
+  $billets = $bdd->query('select ID as id, DATE_FORMAT(date_creation, "%d/%m/%Y à %Hh%imin%ss") as date, titre, image, contenu from billets ORDER BY ID LIMIT '.$depart.','.$billetParPage);
+   
+
   return $billets;
+
 }
 
 //Renvoi les nombres d'alerte
@@ -59,12 +75,28 @@ function SupAlertes() {
   }
 }
 
-function supBillet() {
+function modiBillet() { //Affiche le billet à modifier
+  $bdd = getBdd();
+  if (isset($_GET['modifier']) AND !empty($_GET['modifier'])) {
+  $mod = $_GET['modifier'];
+  $edireq = $bdd->prepare('SELECT * FROM billets WHERE ID = ?');
+  $edireq->execute(array($mod));
+  return $edireq;
+  }
+}
+
+function supBillet() { //supprime le billet
   $bdd = getBdd();
   if (isset($_GET['supprimer']) AND !empty($_GET['supprimer'])) {
     $suppr = $_GET['supprimer'];
     $req = $bdd->prepare('DELETE FROM billets WHERE ID = ?');
     $req->execute(array($suppr));
-
   }
+}
+
+function ajtBillet($titre, $contenu) {
+  $bdd = getBdd();
+  $titre = $_POST['titre'];
+  $req = $bdd->prepare('INSERT INTO billets (titre, image, contenu, date_creation) VALUES(?, ?, ?, NOW())');
+  $req->execute(array($_POST['titre'], $_POST['contenu']));       
 }

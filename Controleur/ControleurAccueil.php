@@ -17,4 +17,10 @@ class ControleurAccueil {
     $vue = new Vue("Accueil");
     $vue->generer(array('billets' => $billets));
   }
+
+  /*
+  public function pagination($pagin){
+    $this->billet->UnePagination($pagin);
+  }*/
+
 }

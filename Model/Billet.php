@@ -6,11 +6,12 @@ class Billet extends Modele{
 
     //Renvoi la liste de tous les billets
   public function getBillets() {
-    $sql = 'select ID as id, DATE_FORMAT(date_creation, "%d/%m/%Y à %Hh%imin%ss") as date, titre, image, contenu from billets';
-    $bdd = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '');
+    $sql = 'select ID as id, DATE_FORMAT(date_creation, "%d/%m/%Y à %Hh%imin%ss") as date, titre, image, contenu from billets LIMIT 0,5';
+    //$billetTotal = $sql->rowCount();
     $billets = $this->executerRequete($sql);
     return $billets;
   }
+
 
   // Renvoie les informations sur un billet
   public function getBillet($idBillet) {
@@ -21,5 +22,14 @@ class Billet extends Modele{
     else
      throw new Exception("Aucun billet ne correspond à l'identifiant '$idBillet'");
   }
+/*
+  public function UnePagination($pagin){
+    $billetParPage = 3;
+
+    $sql = 'SELECT ID FROM billets';
+    $NbreBillet = $this->rowCount();
+    $this->executerRequete($sql, array($pagin));
+    var_dump($NbreBillet);
+  }*/
 
 }

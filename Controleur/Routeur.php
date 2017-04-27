@@ -36,12 +36,21 @@ class Routeur {
                       $idBillet = $this->getParametre($_GET, 'id');
                       $this->ctrlBillet->signaler($idCom, $idBillet);
                 }
+
                 else
                     throw new Exception("Action non valide");
             }
             else {  // aucune action définie : affichage de l'accueil
                 $this->ctrlAccueil->accueil();
-            }
+            }/*
+            if (isset($_GET['page']) && !empty($_GET['page'])) {
+                $_GET['page'] = intval($this->getParametre($_GET, 'page'));
+                $pagin = $_GET['page'];
+                $this->ctrlBillet->pagination($pagin);
+            }else {
+                $_GET['page'] = 1;
+            }*/
+
         }
         catch (Exception $e) {
             $this->erreur($e->getMessage());

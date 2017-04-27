@@ -6,37 +6,40 @@ require 'Controleur/ControleurAdmin.php';
 try {
 
   if(isset($_GET['action'])) {
-  	if ($_GET['action'] == 'alerte') {
+    if ($_GET['action'] == 'alerte') {
   		alerte();
 
-	} else
-      throw new Exception("Action non valide");
-  }
-  //valide une alerte
-  else if(isset($_GET['valide'])) {
-  	alerte();
-  }
-  //supprime une alerte
-  else if(isset($_GET['suppr'])) {
-	alerte();
-  }
-  //supprime un billet
-  elseif (isset($_GET['supprimer'])) {
-  	supBillet();
+  	} else
+        throw new Exception("Action non valide");
+    }
+    //valide une alerte
+    else if(isset($_GET['valide'])) {
+    	alerte();
+    }
+    //supprime une alerte
+    else if(isset($_GET['suppr'])) {
+      alerte();
+    }
+    //supprime un billet
+    elseif (isset($_GET['supprimer'])) {
+    	supBillet();
+    	admin();
+    }
+    //modifie un billet
+    elseif (isset($_GET['modifier'])) {
+      modBillet();
+    }
+    //ajoute un billet
+    elseif (isset($_POST['titre']) && isset($_POST['contenu'])) {
+    	$titre = $_POST['titre'];
+      $contenu = $_POST['contenu'];
+      ajoutBillet($titre, $contenu);
+    }
+    else {
   	admin();
+    }
   }
-  //modifie un billet
-  elseif (isset($_GET['modifier'])) {
-  	modBillet();
-  }
-  //ajoute un billet
-  elseif (isset($_GET['ajouter'])) {
-  	ajtBillet();
-  }
-  else {
-  	admin();
-  }
-}
+
 catch (Exception $e) {
   $msgErreur = $e->getMessage();
 }
