@@ -43,6 +43,7 @@
   <p><?= $commentaire['contenu'] ?></p>
   <a class="btn btn-danger" href="index.php?action=signaler&commentaire=<?= $commentaire['ID'] ?>&id=<?= $commentaire['id_billet'] ?>" name="id" value="<?= $commentaire['id_billet'] ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Signaler</a> 
   <a class="btn btn-info" href="index.php?repondre=<?= $commentaire['ID'] ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Répondre</a>
+  </div>
 <?php endforeach; ?>
 
 
