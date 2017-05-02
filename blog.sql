@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 02 Mai 2017 à 16:14
+-- Généré le :  Mar 02 Mai 2017 à 16:28
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -83,7 +83,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `user`, `pass`) VALUES
-(1, 'admin', '7288edd0fc3ffcbe93a0cf06e3568e28521687bc');
+(1, 'admin', 'test123');
 
 --
 -- Index pour les tables exportées

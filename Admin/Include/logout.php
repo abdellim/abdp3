@@ -1,6 +1,6 @@
 <?php
 session_start();
 session_destroy();
-header('location:../Vue/Vuelogin.php');
+header('location: ../index.php');
 exit;
 ?>
