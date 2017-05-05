@@ -4,7 +4,7 @@
     <div class="jumbotron" style=" margin-top: 80px;">   
         <h2>Ajouter / Modifier un épisode</h2><hr>
         <div id="tonDiv1">
-            <form method="POST">
+            <form method="POST" enctype="multipart/form-data">
                 <?php if (isset($_GET['modifier'])) {?>
                 <input type="hidden" name="id" id="id" value="<?php echo $_GET['modifier'];?>"/>
                 <?php } ?>
@@ -16,7 +16,10 @@
                     <textarea name="body" id="body" rows="5" cols="35" ><?php if (isset($_GET['modifier'])) {
                         echo $modifArticle['contenu']; }?></textarea>
                 </p>
-                <input class="btn btn-info" type="submit" name="add_submit" value="Ajouter" /> <a class="btn btn-success" href="index.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Annuler</a>
+                <label class="">
+                <span class="fileupload-new"><input class="btn btn-default btn-file" type="file" id="image" name="fichier" /></span>
+                </label>
+                <input class="btn btn-info" type="submit" name="add_submit" value="Ajouter" /> <a class="btn btn-success" href="index.php"><i class="fa fa-undo" aria-hidden="true"></i> Annuler</a>
             </form>
             <hr>
             <?php if(!empty($message)) { echo '<p>', $message, '</p>'; }?> 

@@ -50,7 +50,7 @@ class Admin extends Modele {
 
   //Supprime l'épisode
   public function add(){
-    $image = ' ';
+    $image = 'Image/' . $_FILES['fichier']['name'];
     //$_GET['modifier'] = htmlspecialchars($_GET['modifier']); sert à rien???
     $sql = 'INSERT INTO billets(titre, image, contenu, date_creation) VALUES( ?, ?, ?, NOW())';
     $this->executerRequete($sql, array($_POST['title'], $image, $_POST['body']));

@@ -38,6 +38,16 @@ class ControleurAdmin {
           if (!empty($_POST['title']) && !empty($_POST['body'])) {
           $_POST['title'] = $_POST['title'];
           $_POST['body'] = $_POST['body'];
+                    // Ajoute un image
+          if (isset($_FILES['fichier']) AND !empty($_FILES['fichier']['name'])) {
+            $name = $_FILES['fichier']['name'];
+            if(exif_imagetype($_FILES['fichier']['tmp_name']) == 2) {
+              $chemin = '../Image/' . $name;
+              move_uploaded_file($_FILES['fichier']['tmp_name'], $chemin);
+            } else {
+              $message = 'Erreur ! Votre image doit être au format jpg !';
+            }
+          }
           $this->admin->add();
 
           $message = 'Episode ajouter avec succès !';
@@ -45,7 +55,10 @@ class ControleurAdmin {
           }else {
               $message = 'Verifier vos informations';
           }
+
       }
+
+
 
       // SUPPRIME UN EPISODE
       if (isset($_GET['supprimer'])) {
