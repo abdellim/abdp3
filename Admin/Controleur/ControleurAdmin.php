@@ -15,7 +15,7 @@ class ControleurAdmin {
 
       //$compte = $this->admin->getAlertes();
       $modifArticle = '';
-      
+      $message = '';
 
     	//AFFICHE L'EPISODE A MODIFIER
     	if (isset($_GET['modifier']) && !empty($_GET['modifier'])) {
@@ -36,9 +36,10 @@ class ControleurAdmin {
       // AJOUTE UN EPISODE
       if (!isset($_POST['id']) && isset($_POST['title'])) {
           if (!empty($_POST['title']) && !empty($_POST['body'])) {
-          $_POST['title'] = $_POST['title'];
-          $_POST['body'] = $_POST['body'];
-                    // Ajoute un image
+          $_POST['title'] = htmlentities($_POST['title'], ENT_HTML5 , 'UTF-8');
+          $_POST['body'] = htmlentities($_POST['body'], ENT_HTML5 , 'UTF-8');
+
+          // Ajoute un image si il y en à une
           if (isset($_FILES['fichier']) AND !empty($_FILES['fichier']['name'])) {
             $name = $_FILES['fichier']['name'];
             if(exif_imagetype($_FILES['fichier']['tmp_name']) == 2) {
@@ -81,10 +82,12 @@ class ControleurAdmin {
       $billets = $this->admin->getBillets();
       $alertes = $this->admin->getAlertes();
       unset($_POST);
+
       $vue = new Vue("Admin");
       $vue->generer(array(
         'billets' => $billets, 
-        'alertes' => $alertes, 
+        'alertes' => $alertes,
+        'message' => $message, 
         'modifArticle' => $modifArticle));
   }
 }
