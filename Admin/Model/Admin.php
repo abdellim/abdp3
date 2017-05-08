@@ -41,14 +41,14 @@ class Admin extends Modele {
 
   //------------------------      REDACTION / EDITION / SUPPRESSION      ----------------------->>>>
 
-  //Ajoute un épisode
+  //Supprime un épisode
   public function delete(){
     $supprime = (int) $_GET['supprimer'];
     $sql = 'DELETE FROM billets WHERE ID = ?';
     $this->executerRequete($sql, array($supprime));
   }
 
-  //Supprime l'épisode
+  //Ajoute un épisode
   public function add(){
     $image = 'Image/' . $_FILES['fichier']['name'];
     //$_GET['modifier'] = htmlspecialchars($_GET['modifier']); sert à rien???
@@ -67,7 +67,8 @@ class Admin extends Modele {
               $compte = 1;
 	            return $modifArticle->fetch();
 	        } else {
-	            $erreur = 'L\'article n\'existe pas';
+	            $message = 'L\'article n\'existe pas';
+              return $message;
 	        }
   }
 

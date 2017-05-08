@@ -17,13 +17,14 @@ class Routeur {
   // Traite une requête entrante exécute l'action associée
   public function routerRequete() {
         try {
-            if (isset($_SESSION['admin'])) {
-                $this->ctrlAdmin = new ControleurAdmin();
-                $this->ctrlAdmin->AcceuilAdm();
-            } else {
-                $this->ctrlLogin = new ControleurLogin();
-                $this->ctrlLogin->Connexion();   
-            }
+                if (isset($_SESSION['admin'])) {
+                    $this->ctrlAdmin = new ControleurAdmin();
+                    $this->ctrlAdmin->AcceuilAdm();
+                } else {
+                    $this->ctrlLogin = new ControleurLogin();
+                    $this->ctrlLogin->Connexion();   
+
+                }
             }
         
         catch (Exception $e) {

@@ -1,7 +1,14 @@
 <div class="container">
     <!-- Example row of columns -->
   <div class="row">
-    <div class="jumbotron" style=" margin-top: 80px;">   
+    <?php
+      if (isset($message) && !empty(($message))) { ?>
+
+        <div class="alert alert-success" role="alert" style="margin-top: 60px; margin-bottom: -30px"><?php echo $message; ?>
+          <span class="sr-only">Error:</span>
+        </div>
+    <?php }?>
+    <div class="jumbotron" style=" margin-top: 55px;"> <?php var_dump($billetTotal) ?>  
         <h2>Ajouter / Modifier un épisode</h2><hr>
         <div id="tonDiv1">
             <form method="POST" enctype="multipart/form-data">

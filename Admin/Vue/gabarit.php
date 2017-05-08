@@ -4,21 +4,26 @@
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
+        <?php 
+        //if (isset($_SESSION['admin'])): ?>
+
         <div class="navbar-header">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="index.php">Mes Alertes ()</a></li>
-                <li><a href="Include/logout.php"><i class="fa fa-lock" aria-hidden="true"></i>Déconnexion</a></li>
+                <li><a href="Include/logout.php"><i class="fa fa-lock" aria-hidden="true"></i> Déconnexion</a></li>
             </ul>
             <a class="navbar-brand" href="#">Tableau de bord</a>
         </div>
     </div>
 </nav>
 <?= $contenu ?>
-<footer>
-    <div style="background-color: aqua; height: 110px;">
-        
-    </div>
-</footer>
+<?php 
+    //if (isset($_SESSION['admin'])): ?>
+    <footer>
+        <div style="background-color: aqua; height: 110px;">
+            
+        </div>
+    </footer>
+
 
 <!-- Bootstrap core JavaScript
 ================================================== -->

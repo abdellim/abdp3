@@ -54,9 +54,11 @@ class ControleurAdmin {
           $message = 'Episode ajouter avec succès !';
 
           }else {
-              $message = 'Verifier vos informations';
+              $message = 'Verifier vos informations !';
           }
 
+      } else {
+        //$message = 'Merci de remplir tous les champs !';
       }
 
 
@@ -65,27 +67,31 @@ class ControleurAdmin {
       if (isset($_GET['supprimer'])) {
         $this->admin->delete();
         header('location: index.php');
-        $message = 'L\'épisode à bien été modifier ! ';
+        $message = 'L\'épisode à bien été supprimer ! ';
       }
 
       // VALIDE UNE ALERTE
       if (isset($_GET['valide']) AND !empty($_GET['valide'])) {
         $this->admin->ValAlertes();
         header('location: index.php');
+        $message = 'Le commentaire à bien été valider !';
       }
 
       // SUPPRIME UNE ALERTE
       if (isset($_GET['suppr']) AND !empty($_GET['suppr'])) {
         $this->admin->SupAlertes();
         header('location: index.php');
+        $message = 'Le commentaire à bien été supprimer !';
       }
       $billets = $this->admin->getBillets();
+      $billetTotal = $billets->rowCount(); // On recupère le nombre de billet
       $alertes = $this->admin->getAlertes();
       unset($_POST);
 
       $vue = new Vue("Admin");
       $vue->generer(array(
-        'billets' => $billets, 
+        'billets' => $billets,
+        'billetTotal' => $billetTotal, 
         'alertes' => $alertes,
         'message' => $message, 
         'modifArticle' => $modifArticle));

@@ -17,9 +17,14 @@ class ControleurBillet {
   // Affiche les détails sur un billet
   public function billet($idBillet) {
     $billet = $this->billet->getBillet($idBillet);
+    $billetTotal = $this->billet->getBillets()->rowCount(); // On recupère le nombre de billet
     $commentaires = $this->commentaire->getCommentaires($idBillet);
     $vue = new Vue("Billet");
-    $vue->generer(array('billet' => $billet, 'commentaires' => $commentaires));
+    $vue->generer(array(
+      'billet' => $billet, 
+      'commentaires' => $commentaires,
+      'billetTotal' => $billetTotal
+      ));
   }
 
   //Ajoute un commentaire à un billet
