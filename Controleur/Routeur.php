@@ -19,11 +19,21 @@ class Routeur {
             if (isset($_GET['action'])) {
                 if ($_GET['action'] == 'billet') {
                     $idBillet = intval($this->getParametre($_GET, 'id'));
-                    if ($idBillet != 0) {
+                                        if ($idBillet != 0) {
                         $this->ctrlBillet->billet($idBillet);
                     }
                     else
                         throw new Exception("Identifiant de billet non valide");
+                    if ($_POST) {
+                    $auteur = $this->getParametre($_POST, 'pseudo');
+                    $contenu = $this->getParametre($_POST, 'content');
+                    $idBillet = $this->getParametre($_POST, 'id');
+                    $parent_id  = $this->getParametre($_POST, 'parent_id');
+                    $this->ctrlBillet->commenter($auteur, $contenu, $idBillet, $parent_id);
+                    unset($_POST);
+                    
+                }
+
                 }
                 else if ($_GET['action'] == 'commenter') {
                     $auteur = $this->getParametre($_POST, 'auteur');
@@ -37,12 +47,18 @@ class Routeur {
                       $this->ctrlBillet->signaler($idCom, $idBillet);
                 }
 
-                else
+                else {
                     throw new Exception("Action non valide");
-            }
-            else {  // aucune action définie : affichage de l'accueil
+                }
+            } else {  // aucune action définie : affichage de l'accueil
                 $this->ctrlAccueil->accueil();
-            }/*
+            }
+
+
+
+
+            
+           /*
             if (isset($_GET['page']) && !empty($_GET['page'])) {
                 $_GET['page'] = intval($this->getParametre($_GET, 'page'));
                 $pagin = $_GET['page'];

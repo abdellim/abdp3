@@ -16,6 +16,20 @@
   </body>
 
   <!-- SCRIPT -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+      <script>
+        $(document).ready(function($) {
+          $('.reply').click(function(e) {
+              e.preventDefault();
+              var $form = $('#form-comment');
+              var $this = $(this);
+              var parent_id = $this.data('id');
+              var $comment = $('#comment-' + parent_id);
+              $form.find('h4').text('Répondre à ce commentaire');
+              $('#parent_id').val(parent_id);
+              $comment.after($form);
+          })
+        });
+      </script>
 </html>
