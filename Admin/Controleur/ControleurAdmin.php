@@ -86,6 +86,7 @@ class ControleurAdmin {
       $billets = $this->admin->getBillets();
       $billetTotal = $billets->rowCount(); // On recupère le nombre de billet
       $alertes = $this->admin->getAlertes();
+      $compteAlerte = $alertes->rowCount();
       unset($_POST);
 
       $vue = new Vue("Admin");
@@ -93,7 +94,8 @@ class ControleurAdmin {
         'billets' => $billets,
         'billetTotal' => $billetTotal, 
         'alertes' => $alertes,
-        'message' => $message, 
+        'message' => $message,
+        'compteAlerte' => $compteAlerte, 
         'modifArticle' => $modifArticle));
   }
 }

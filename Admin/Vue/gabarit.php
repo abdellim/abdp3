@@ -2,18 +2,20 @@
 <html lang="fr">
 <?php include 'Include/headAdm.php'; ?>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <?php 
-        //if (isset($_SESSION['admin'])): ?>
 
-        <div class="navbar-header">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="Include/logout.php"><i class="fa fa-lock" aria-hidden="true"></i> Déconnexion</a></li>
-            </ul>
-            <a class="navbar-brand" href="#">Tableau de bord</a>
-        </div>
+
+ <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Tableau de bord</a>
     </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="../index.php">Voir le site</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="Include/logout.php"><span class="glyphicon glyphicon-log-in"></span> Déconnexion</a></li>
+    </ul>
+  </div>
 </nav>
 <?= $contenu ?>
 <?php 

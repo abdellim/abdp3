@@ -8,7 +8,7 @@
           <span class="sr-only">Error:</span>
         </div>
     <?php }?>
-    <div class="jumbotron" style=" margin-top: 55px;"> <?php var_dump($billetTotal) ?>  
+    <div class="jumbotron" style=" margin-top: 55px;"> <?php var_dump($compteAlerte) ?>  
         <h2>Ajouter / Modifier un épisode</h2><hr>
         <div id="tonDiv1">
             <form method="POST" enctype="multipart/form-data">
@@ -55,7 +55,7 @@
             </tbody>
         </table>
     </div>
-    <div class="jumbotron" style = "<?php //if ($compte == 0) { echo 'display : none'; }?>">
+    <div class="jumbotron" style = "<?php if ($compteAlerte == 0) { echo 'display : none'; }?>">
         <h2>Commentaires signaler</h2><hr>
             <table class="table table-hover">
                   <thead>

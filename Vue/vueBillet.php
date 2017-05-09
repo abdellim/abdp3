@@ -1,9 +1,9 @@
-<?php $titre = "- " .$this->titre; ?>
+<?php $this->titre = '- ' . $billet->titre; ?>
 
 <div class="jumbotron" style="background-color: #FCFAE1">
 <article>
   <header style="text-align: center;">
-  <img class="featurette-image img-responsive center-block" src="<?= '../' . $billet->image; ?>" alt="Generic placeholder image">
+  <img class="featurette-image img-responsive center-block" src="<?= $billet->image; ?>" alt="Generic placeholder image">
     <h1 class="lead" style="color: green;"><?= $billet->titre ?></h1>
     <p>Publié le <?= $billet->date ?></p>
   </header>
@@ -41,7 +41,7 @@ foreach ($commentaires as $comment ) {
           //verif si c'est une rep
           if ($comment->parent_id != 0) {
             $commentaireParId[$comment->parent_id]->children[] = $comment;
-            //on sort les commentaires du tableaux comments 
+            //on sort les commentaires du tableaux commentaires 
             unset($commentaires[$k]);
           }
         }?>
@@ -81,7 +81,7 @@ foreach ($commentaires as $comment ) {
                       <div class="jumbotron" style="background-color: orange;">
                         <strong><?php echo $comment->auteur; ?> à écrit le <?= $comment->date; ?> :</strong><br>           
                         <?php echo $comment->contenu; ?><hr>
-                        <p class="text-right"><a class="btn btn-danger" name="id" value=""><i class="fa fa-trash-o" aria-hidden="true"></i> Signaler</a>
+                        <p class="text-right"><a class="btn btn-danger" href="index.php?action=signaler&commentaire=<?= $comment->ID ?>&id=<?= $comment->id_billet ?>" name="id" value="<?= $comment->id_billet ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Signaler</a></p>
                       </div>
                     </div>
                   <?php endforeach; ?>

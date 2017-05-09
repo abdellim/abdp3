@@ -9,4 +9,6 @@
     <title>Mon Blog <?php echo $titre ?></title>
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="Include/css/sticky-footer.css" rel="stylesheet">
 </head>
