@@ -28,7 +28,7 @@ class ControleurAdmin {
 	        $body = htmlspecialchars($_POST['body']);
 	        $id = intval($_POST['id']);
 	        $this->admin->edit_post($title, $body, $id);
-	        header('location: index.php');
+	        //header('location: index.php');
 	        $message = 'L\'épisode à bien été modifier ! ';
     	}
 
@@ -66,7 +66,7 @@ class ControleurAdmin {
       // SUPPRIME UN EPISODE
       if (isset($_GET['supprimer'])) {
         $this->admin->delete();
-        header('location: index.php');
+        //header('location: index.php');
         $message = 'L\'épisode à bien été supprimer ! ';
       }
 

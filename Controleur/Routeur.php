@@ -22,17 +22,10 @@ class Routeur {
                                         if ($idBillet != 0) {
                         $this->ctrlBillet->billet($idBillet);
                     }
-                    else
+                    else {
                         throw new Exception("Identifiant de billet non valide");
-                    if ($_POST) {
-                    $auteur = $this->getParametre($_POST, 'pseudo');
-                    $contenu = $this->getParametre($_POST, 'content');
-                    $idBillet = $this->getParametre($_POST, 'id');
-                    $parent_id  = $this->getParametre($_POST, 'parent_id');
-                    $this->ctrlBillet->commenter($auteur, $contenu, $idBillet, $parent_id);
-                    unset($_POST);
-                    
-                }
+                    }
+
 
                 }
                 else if ($_GET['action'] == 'commenter') {

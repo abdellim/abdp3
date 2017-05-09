@@ -18,6 +18,10 @@ class Routeur {
   public function routerRequete() {
         try {
                 if (isset($_SESSION['admin'])) {
+                    if (true) {
+                       
+                    }
+
                     $this->ctrlAdmin = new ControleurAdmin();
                     $this->ctrlAdmin->AcceuilAdm();
                 } else {

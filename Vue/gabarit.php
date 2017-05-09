@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <?php require '/Include/Head.php'; ?>
+  <?php require 'Include/Head.php'; ?>
   <body>
-    <?php require '/Include/Nav.php'; ?>
+    <?php require 'Include/Nav.php'; ?>
     
-    <?php require '/Include/Slide.php'; ?>
+    <?php require 'Include/Slide.php'; ?>
     <div class="container">
       <div class="starter-template" style="padding-top: 40px;">
         <div class="row">

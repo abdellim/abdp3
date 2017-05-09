@@ -56,7 +56,7 @@
         </table>
     </div>
     <div class="jumbotron" style = "<?php if ($compteAlerte == 0) { echo 'display : none'; }?>">
-        <h2>Commentaires signaler</h2><hr>
+        <h2>Commentaires signalés</h2><hr>
             <table class="table table-hover">
                   <thead>
                     <tr>

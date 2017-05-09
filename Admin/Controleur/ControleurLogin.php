@@ -11,8 +11,7 @@ class ControleurLogin {
   }
 
   public function Connexion() {
-	$vue = new Vue("Log");
-	$vue->generer(array());
+
 
     if (isset($_POST) AND !empty($_POST)) {
     	// Verification que les champs ne soit pas vide
@@ -22,7 +21,9 @@ class ControleurLogin {
 	   	//$pass = $this->login->hashPassword();
 		   	}
 
-		}
+	}
+	$vue = new Vue("Log");
+	$vue->generer(array());
 	}
   
 }

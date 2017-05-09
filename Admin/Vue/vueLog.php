@@ -9,4 +9,4 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Se connecter</button>
       </form>
     </div>
-    <?php var_dump($_SESSION['admin']); ?>
+    <?php//var_dump($_SESSION['admin']); ?>

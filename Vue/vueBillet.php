@@ -1,5 +1,10 @@
 <?php $this->titre = '- ' . $billet->titre; ?>
-
+<nav aria-label="...">
+  <ul class="pager">
+    <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
+  
+  </ul>
+</nav>
 <div class="jumbotron" style="background-color: #FCFAE1">
 <article>
   <header style="text-align: center;">
@@ -53,7 +58,7 @@ foreach ($commentaires as $comment ) {
       <div class="panel-body" id="comment-<?= $comment->ID; ?>">
         <strong><?php echo $comment->auteur; ?> à écrit le <?= $comment->date; ?> :</strong><br><hr>
         <?php echo $comment->contenu; ?><hr>
-        <p class="text-right"><button class="btn btn-info reply" data-id="<?= $comment->ID; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Répondre</button></p>
+        <p class="text-right"><button class="btn btn-info reply" data-id="<?= $comment->ID; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Répondre</button> <a class="btn btn-danger" href="index.php?action=signaler&commentaire=<?= $comment->ID ?>&id=<?= $comment->id_billet ?>" name="id" value="<?= $comment->id_billet ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Signaler</a></p>
       </div>
     </div>
       <?php if (isset($comment->children)):?>
@@ -63,7 +68,7 @@ foreach ($commentaires as $comment ) {
               <strong><?php echo $comment->auteur; ?> à écrit le <?= $comment->date; ?> :</strong><br>
               <?php echo $comment->contenu; ?><hr>
              
-              <p class="text-right"><button class="btn btn-info reply" data-id="<?= $comment->ID; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Répondre</button></p>
+              <p class="text-right"><button class="btn btn-info reply" data-id="<?= $comment->ID; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Répondre</button> <a class="btn btn-danger" href="index.php?action=signaler&commentaire=<?= $comment->ID ?>&id=<?= $comment->id_billet ?>" name="id" value="<?= $comment->id_billet ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Signaler</a></p>
             </div>
           </div>
           <?php if (isset($comment->children)):?>
@@ -72,7 +77,7 @@ foreach ($commentaires as $comment ) {
                   <div class="" id="comment-<?= $comment->ID; ?>">  
                     <strong><?php echo $comment->auteur; ?> à écrit le <?= $comment->date; ?> :</strong><br>
                     <?php echo $comment->contenu; ?><hr>
-                    <p class="text-right"><button class="btn btn-info reply" data-id="<?= $comment->ID; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Répondre</button></p>
+                    <p class="text-right"><button class="btn btn-info reply" data-id="<?= $comment->ID; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Répondre</button> <a class="btn btn-danger" href="index.php?action=signaler&commentaire=<?= $comment->ID ?>&id=<?= $comment->id_billet ?>" name="id" value="<?= $comment->id_billet ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Signaler</a></p>
                   </div>
                 </div>
                 <?php if (isset($comment->children)):?>
