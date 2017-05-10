@@ -8,7 +8,7 @@
           <span class="sr-only">Error:</span>
         </div>
     <?php }?>
-    <div class="jumbotron" style=" margin-top: 55px;"> <?php var_dump($compteAlerte) ?>  
+    <div class="jumbotron" style=" margin-top: 55px;">  
         <h2>Ajouter / Modifier un épisode</h2><hr>
         <div id="tonDiv1">
             <form method="POST" enctype="multipart/form-data">
@@ -29,9 +29,8 @@
                 <input class="btn btn-info" type="submit" name="add_submit" value="Ajouter" /> <a class="btn btn-success" href="index.php"><i class="fa fa-undo" aria-hidden="true"></i> Annuler</a>
             </form>
             <hr>
-            <?php if(!empty($message)) { echo '<p>', $message, '</p>'; }?> 
         </div>
-    </div>
+    </div><?php var_dump($message); ?>
     <div class="jumbotron">
         <h2>Liste des épisodes</h2><hr>
         <table class="table table-hover">

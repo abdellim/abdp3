@@ -12,18 +12,23 @@ class ControleurLogin {
 
   public function Connexion() {
 
-
+  	$message = '';
     if (isset($_POST) AND !empty($_POST)) {
     	// Verification que les champs ne soit pas vide
     	if (!empty(htmlspecialchars($_POST['user'])) AND !empty(htmlspecialchars($_POST['pass']))) { 
 	    $this->login->getLogin();
-	    header('location:index.php');
-	   	//$pass = $this->login->hashPassword();
-		   	}
-
+	    	if (isset($_SESSION['admin'])) {
+	    		header('location:index.php');
+	    	} else {
+	    	$message = 'Nom d\'utilisateur ou mot de passe incorrect !';
+	    	}
+		} else {
+			$message = 'Merci de remplir tous les champs !';
+		}
+ 
 	}
 	$vue = new Vue("Log");
-	$vue->generer(array());
+	$vue->generer(array('message' => $message));
 	}
   
 }

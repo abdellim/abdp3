@@ -3,7 +3,8 @@
 <?php include 'Include/headAdm.php'; ?>
 <body>
 
-
+<?php 
+    if (isset($_SESSION['admin'])): ?>
  <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -17,14 +18,16 @@
     </ul>
   </div>
 </nav>
+<?php endif; ?>
 <?= $contenu ?>
 <?php 
-    //if (isset($_SESSION['admin'])): ?>
+    if (isset($_SESSION['admin'])): ?>
     <footer>
         <div style="background-color: aqua; height: 110px;">
             
         </div>
     </footer>
+<?php endif; ?>
 
 
 <!-- Bootstrap core JavaScript
@@ -33,6 +36,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script>
+    $(function(){
+            $("div.alert").show("slow").delay(4000).hide("slow");
+           
+    });
+    </script>
 </body>
 </html>

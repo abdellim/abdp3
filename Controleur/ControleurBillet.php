@@ -41,6 +41,7 @@ class ControleurBillet {
       'billet' => $billet, 
       'commentaires' => $commentaires,
       'commentaireParId' => $commentaireParId,
+      'message' => $message,
       'billetTotal' => $billetTotal
       ));
   }

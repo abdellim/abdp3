@@ -13,10 +13,12 @@ class login extends Modele {
     ));
     $user = $login->fetchObject(); //on sauvegarde dans la variable user
     if ($user) {
-              //on donne la session
-              $_SESSION['admin'] = $_POST['user'];
-              return $user;
-    }
+      //on donne la session
+      $_SESSION['admin'] = $_POST['user'];
+    } else {
+        $message = 'Nom d\'utilisateur ou mot de passe incorrect !';
+        return $message;
+      }
   }
 }
 
