@@ -19,6 +19,7 @@ class Commentaire extends Modele
     $sql = 'INSERT INTO `commentaires`(`date_creation`, `pseudo`, `commentaire`, `id_billet`, `parent_id`) VALUES ( ?, ?, ?, ?, ?)';
     $date = date("Y-m-d H:i:s");// Récupère la date courante
     $this->executerRequete($sql, array($date, $auteur, $contenu, $idBillet, $parent_id));
+    unset($auteur, $date, $contenu);
   }
 
   //Signal un commentaire

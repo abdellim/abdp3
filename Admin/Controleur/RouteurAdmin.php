@@ -34,6 +34,7 @@ class Routeur {
                     if (isset($_GET['valide']) AND !empty($_GET['valide'])) {
                         $this->ctrlAdmin = new ControleurAdmin();
                         $this->ctrlAdmin->validCom();
+                        $message = 'com valide';
                     }//supprime un commentaire
                     if (isset($_GET['suppr']) AND !empty($_GET['suppr'])) {
                         $this->ctrlAdmin = new ControleurAdmin();

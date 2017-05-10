@@ -36,4 +36,11 @@
           })
         });
       </script>
+
+          <script>
+    $(function(){
+            $("div.alert").show("slow").delay(4000).hide("slow");
+           
+    });
+    </script>
 </html>

@@ -34,16 +34,17 @@
       </div>
     </form>
 </div>
+    <?php
+      if (isset($message) && !empty(($message))) { ?>
+
+        <div class="alert alert-success" role="alert"><?php echo $message; ?>
+          <span class="sr-only">Error:</span>
+        </div>
+    <?php }?>
 <header class="jumbotron">
     <h2 style="text-align: center; color: blue;">Commentaires - <?= $billet->titre ?></h2>
 </header>
-<?php
-  if (isset($message) && !empty(($message))) { ?>
 
-    <div class="alert alert-success" role="alert" style="margin-top: 60px; margin-bottom: -30px"><?php echo $message; ?>
-      <span class="sr-only">Error:</span>
-    </div>
-<?php }?>
 <?php
 foreach ($commentaires as $comment ) {
           $commentaireParId[$comment->ID] = $comment;
