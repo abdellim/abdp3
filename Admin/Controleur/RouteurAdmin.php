@@ -8,9 +8,10 @@ class Routeur {
 
     private $ctrlAdmin;
     private $ctrlLogin;
-
-    public function __construct() {
     
+    public function __construct() {
+        $this->ctrlAdmin = new ControleurAdmin();
+        $this->ctrlLogin = new ControleurLogin();
     }
     // Traite une requête entrante exécute l'action associée
     public function routerRequete() {
@@ -21,32 +22,26 @@ class Routeur {
                         $title = htmlspecialchars($_POST['title']);
                         $body = htmlspecialchars($_POST['body']);
                         $id = intval($_POST['id']);
-                        $this->ctrlAdmin = new ControleurAdmin();
+                        
                         $this->ctrlAdmin->editEpisode($title, $body, $id);
                     }
                     //supp épisode
                     if (isset($_GET['supprimer'])) {
-                        $this->ctrlAdmin = new ControleurAdmin();
                         $this->ctrlAdmin->suppEpisode();
-                        header('location: index.php');
+                        //header('location: index.php');
                     }
                     //valide un commentaire
                     if (isset($_GET['valide']) AND !empty($_GET['valide'])) {
-                        $this->ctrlAdmin = new ControleurAdmin();
                         $this->ctrlAdmin->validCom();
-                        $message = 'com valide';
+                        
                     }//supprime un commentaire
                     if (isset($_GET['suppr']) AND !empty($_GET['suppr'])) {
-                        $this->ctrlAdmin = new ControleurAdmin();
                         $this->ctrlAdmin->supprCom();
                     }
-
-                    $this->ctrlAdmin = new ControleurAdmin();
                     $this->ctrlAdmin->AcceuilAdm();
                 } else {
-                    $this->ctrlLogin = new ControleurLogin();
+                   
                     $this->ctrlLogin->Connexion();   
-
                 }
             }
         
