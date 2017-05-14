@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 08 Mai 2017 à 23:45
+-- Généré le :  Dim 14 Mai 2017 à 18:03
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -39,9 +39,7 @@ CREATE TABLE `billets` (
 --
 
 INSERT INTO `billets` (`ID`, `titre`, `image`, `contenu`, `date_creation`) VALUES
-(151, 'Episode 1', 'Image/alaska.jpg', 'Quin in ipso equo, cuius modo feci mentionem, si nulla res impediat, nemo est, quin eo, quo consuevit, libentius utatur quam intractato et novo. Nec vero in hoc quod est animal, sed in iis etiam quae sunt inanima, consuetudo valet, cum locis ipsis delectemur, montuosis etiam et silvestribus. Quin in ipso equo, cuius modo feci mentionem, si nulla res impediat, nemo est, quin eo, quo consuevit, libentius utatur quam intractato et novo. Nec vero in hoc quod est animal, sed in iis etiam quae sunt inanima, consuetudo valet, cum locis ipsis delectemur, montuosis etiam et silvestribus. Quin in ipso equo, cuius modo feci mentionem, si nulla res impediat, nemo est, quin eo, quo consuevit, libentius utatur quam intractato et novo. Nec vero in hoc quod est animal, sed in iis etiam quae sunt inanima, consuetudo valet, cum locis ipsis delectemur, montuosis etiam et silvestribus. Quin in ipso equo, cuius modo feci mentionem, si nulla res impediat, nemo est, quin eo, quo consuevit, libentius utatur quam intractato et novo. Nec vero in hoc quod est animal, sed in iis etiam quae sunt inanima, consuetudo valet, cum locis ipsis delectemur, montuosis etiam et silvestribus. Quin in ipso equo, cuius modo feci mentionem, si nulla res impediat, nemo est, quin eo, quo consuevit, libentius utatur quam intractato et novo. Nec vero in hoc quod est animal, sed in iis etiam quae sunt inanima, consuetudo valet, cum locis ipsis delectemur, montuosis etiam et silvestribus.', '2017-05-06 22:23:59'),
-(152, 'Episode 2', 'Image/alaska2.jpg', 'Quin in ipso equo, cuius modo feci mentionem, si nulla res impediat, nemo est, quin eo, quo consuevit, libentius utatur quam intractato et novo. Nec vero in hoc quod est animal, sed in iis etiam quae sunt inanima, consuetudo valet, cum locis ipsis delectemur, montuosis etiam et silvestribus. Quin in ipso equo, cuius modo feci mentionem, si nulla res impediat, nemo est, quin eo, quo consuevit, libentius utatur quam intractato et novo. Nec vero in hoc quod est animal, sed in iis etiam quae sunt inanima, consuetudo valet, cum locis ipsis delectemur, montuosis etiam et silvestribus. Quin in ipso equo, cuius modo feci mentionem, si nulla res impediat, nemo est, quin eo, quo consuevit, libentius utatur quam intractato et novo. Nec vero in hoc quod est animal, sed in iis etiam quae sunt inanima, consuetudo valet, cum locis ipsis delectemur, montuosis etiam et silvestribus. Quin in ipso equo, cuius modo feci mentionem, si nulla res impediat, nemo est, quin eo, quo consuevit, libentius utatur quam intractato et novo. Nec vero in hoc quod est animal, sed in iis etiam quae sunt inanima, consuetudo valet, cum locis ipsis delectemur, montuosis etiam et silvestribus. Quin in ipso equo, cuius modo feci mentionem, si nulla res impediat, nemo est, quin eo, quo consuevit, libentius utatur quam intractato et novo. Nec vero in hoc quod est animal, sed in iis etiam quae sunt inanima, consuetudo valet, cum locis ipsis delectemur, montuosis etiam et silvestribus.s', '2017-05-06 12:50:30'),
-(174, 'episode 3', 'Image/loiredigital2.jpg', 'sqsdqs', '2017-05-08 21:47:14');
+(151, 'Episode 1', 'Image/alaska.jpg', 'Quin in ipso equo, cuius modo feci mentionem, si nulla res impediat, nemo est, quin eo, quo consuevit, libentius utatur quam intractato et novo. Nec vero in hoc quod est animal, sed in iis etiam quae sunt inanima, consuetudo valet, cum locis ipsis delectemur, montuosis etiam et silvestribus. Quin in ipso equo, cuius modo feci mentionem, si nulla res impediat, nemo est, quin eo, quo consuevit, libentius utatur quam intractato et novo. Nec vero in hoc quod est animal, sed in iis etiam quae sunt inanima, consuetudo valet, cum locis ipsis delectemur, montuosis etiam et silvestribus. Quin in ipso equo, cuius modo feci mentionem, si nulla res impediat, nemo est, quin eo, quo consuevit, libentius utatur quam intractato et novo. Nec vero in hoc quod est animal, sed in iis etiam quae sunt inanima, consuetudo valet, cum locis ipsis delectemur, montuosis etiam et silvestribus. Quin in ipso equo, cuius modo feci mentionem, si nulla res impediat, nemo est, quin eo, quo consuevit, libentius utatur quam intractato et novo. Nec vero in hoc quod est animal, sed in iis etiam quae sunt inanima, consuetudo valet, cum locis ipsis delectemur, montuosis etiam et silvestribus. Quin in ipso equo, cuius modo feci mentionem, si nulla res impediat, nemo est, quin eo, quo consuevit, libentius utatur quam intractato et novo. Nec vero in hoc quod est animal, sed in iis etiam quae sunt inanima, consuetudo valet, cum locis ipsis delectemur, montuosis etiam et silvestribus.', '2017-05-14 19:37:13');
 
 -- --------------------------------------------------------
 
@@ -64,10 +62,8 @@ CREATE TABLE `commentaires` (
 --
 
 INSERT INTO `commentaires` (`ID`, `parent_id`, `pseudo`, `commentaire`, `id_billet`, `date_creation`, `signaler`) VALUES
-(41, 0, 'test', 'test', 151, '2017-05-08 21:06:43', 0),
-(42, 41, 'test', 'test niv1', 151, '2017-05-08 21:07:06', 0),
-(43, 42, 'test', 'test de niv 2', 151, '2017-05-08 21:08:23', 0),
-(44, 43, 'test', 'test niv3', 151, '2017-05-08 21:10:16', 0);
+(3, 0, 'a', 'a', 151, '2017-05-14 17:40:22', 0),
+(4, 3, 'b', 'b', 151, '2017-05-14 17:40:35', 1);
 
 -- --------------------------------------------------------
 
@@ -78,7 +74,7 @@ INSERT INTO `commentaires` (`ID`, `parent_id`, `pseudo`, `commentaire`, `id_bill
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `user` varchar(50) NOT NULL,
-  `pass` varchar(50) NOT NULL
+  `pass` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -86,7 +82,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `user`, `pass`) VALUES
-(1, 'admin', 'test123');
+(4, 'admin', '$2y$14$KQCDYaY/ns5kFQYsccE0SOJHNGKKvq/bFmlzzXjBEhv8pqjnwQ6pi');
 
 --
 -- Index pour les tables exportées
@@ -119,17 +115,17 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `billets`
 --
 ALTER TABLE `billets`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=175;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
 --
 -- AUTO_INCREMENT pour la table `commentaires`
 --
 ALTER TABLE `commentaires`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- Contraintes pour les tables exportées
 --
