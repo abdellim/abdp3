@@ -1,9 +1,7 @@
 <div class="container">
-    <!-- Example row of columns -->
   <div class="row">
     <?php
       if (isset($message) && !empty(($message))) { ?>
-
         <div class="alert alert-success" role="alert" style="margin-top: 60px; margin-bottom: -30px"><?php echo $message; ?>
           <span class="sr-only">Error:</span>
         </div>
@@ -30,7 +28,7 @@
             </form>
             <hr>
         </div>
-    </div><?php var_dump($message); ?>
+    </div>
     <div class="jumbotron">
         <h2>Liste des épisodes</h2><hr>
         <table class="table table-hover">
@@ -56,29 +54,29 @@
     </div>
     <div class="jumbotron" style = "<?php if ($compteAlerte == 0) { echo 'display : none'; }?>">
         <h2>Commentaires signalés</h2><hr>
-            <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th>Episode</th>
-                      <th>Pseudo</th>
-                      <th>Commentaire</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <?php foreach ($alertes as $alerte): ?>
-                  <tbody>
-                  <tr>
-                    <td><?= $alerte['id_billet'] ?></td>
-                    <td><?= $alerte['pseudo'] ?></td>
-                    <td><?= $alerte['commentaire'] ?></td>
-                    <td>
-                        <a class="btn btn-danger" id=<?= $alerte['ID'] ?> href="index.php?suppr=<?= $alerte['ID'] ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Supprimer</a> 
-                        <a class="btn btn-info" href="index.php?valide=<?= $alerte['ID'] ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Valider</a>
-                    </td>
-                  </tr>
-                  </tbody>
-                  <?php endforeach; ?>
-            </table>
+        <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Episode</th>
+                  <th>Pseudo</th>
+                  <th>Commentaire</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <?php foreach ($alertes as $alerte): ?>
+              <tbody>
+              <tr>
+                <td><?= $alerte['id_billet'] ?></td>
+                <td><?= $alerte['pseudo'] ?></td>
+                <td><?= $alerte['commentaire'] ?></td>
+                <td>
+                    <a class="btn btn-danger" id=<?= $alerte['ID'] ?> href="index.php?suppr=<?= $alerte['ID'] ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Supprimer</a> 
+                    <a class="btn btn-info" href="index.php?valide=<?= $alerte['ID'] ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Valider</a>
+                </td>
+              </tr>
+              </tbody>
+              <?php endforeach; ?>
+        </table>
     </div>
   </div>
-</div> <!-- /container -->
+</div> 

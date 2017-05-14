@@ -5,6 +5,7 @@ require_once 'Vue/Vue.php';
 
 class ControleurLogin {
   private $login;
+  public $message;
 
   public function __construct() {
     $this->login = new login(); // nouvelle objet du model login
@@ -12,7 +13,6 @@ class ControleurLogin {
 
   public function Connexion() {
 
-  	$message = '';
     if (isset($_POST) AND !empty($_POST)) {
     	// Verification que les champs ne soit pas vide
     	if (!empty(htmlspecialchars($_POST['user'])) AND !empty(htmlspecialchars($_POST['pass']))) { 
@@ -20,15 +20,15 @@ class ControleurLogin {
 	    	if (isset($_SESSION['admin'])) {
 	    		header('location:index.php');
 	    	} else {
-	    	$message = 'Nom d\'utilisateur ou mot de passe incorrect !';
+	    	$this->message = 'Nom d\'utilisateur ou mot de passe incorrect !';
 	    	}
 		} else {
-			$message = 'Merci de remplir tous les champs !';
+			$this->message = 'Merci de remplir tous les champs !';
 		}
- 
+	 
 	}
 	$vue = new Vue("Log");
-	$vue->generer(array('message' => $message));
+	$vue->generer(array('message' => $this->message));
 	}
   
 }

@@ -21,10 +21,4 @@ class ControleurAccueil {
       'billetTotal' => $billetTotal
       ));
   }
-
-  /*
-  public function pagination($pagin){
-    $this->billet->UnePagination($pagin);
-  }*/
-
 }

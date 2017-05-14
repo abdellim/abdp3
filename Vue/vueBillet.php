@@ -19,7 +19,7 @@
 <hr />
 <div class="jumbotron">
  
-    <form action="" id="form-comment" method="post">
+    <form action="#" id="form-comment" method="post">
       <input type="hidden" name="parent_id" value="0" id="parent_id">
       <input type="hidden" name="id" value="<?= $billet->ID ?>" />
       <h4>Poster un commentaire</h4>
@@ -30,7 +30,7 @@
         <textarea name="content" id="content" class="form-control" placeholder="Votre commentaire" required></textarea>      
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary">Commenter</button>
+        <button type="submit" class="btn btn-primary" required>Commenter</button>
       </div>
     </form>
 </div>

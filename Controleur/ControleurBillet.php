@@ -29,6 +29,8 @@ class ControleurBillet {
   // Affiche les détails sur un billet
   public function billet($idBillet) {
     if ($_POST) {
+        $_POST['pseudo'] = htmlentities($_POST['pseudo']);
+        $_POST['content'] = htmlentities($_POST['content']);
         $auteur = $this->getParametre($_POST, 'pseudo');
         $contenu = $this->getParametre($_POST, 'content');
         $idBillet = $this->getParametre($_POST, 'id');
@@ -37,7 +39,6 @@ class ControleurBillet {
         
     }
     $billet = $this->billet->getBillet($idBillet);
-    $billetTotal = $this->billet->getBillets()->rowCount(); // On recupère le nombre de billet
     $commentaires = $this->commentaire->getCommentaires($idBillet); // Affiche les commentaires
     $commentaireParId = []; //Tab qui contient les com organiser par leur id
     $vue = new Vue("Billet");
@@ -45,8 +46,7 @@ class ControleurBillet {
       'billet' => $billet, 
       'commentaires' => $commentaires,
       'commentaireParId' => $commentaireParId,
-      'message' => $this->message,
-      'billetTotal' => $billetTotal
+      'message' => $this->message
       ));
   }
 

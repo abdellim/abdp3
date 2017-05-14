@@ -16,7 +16,6 @@ class Admin extends Modele {
   //Affiche les alertes
   public function getAlertes() {
     $sql = 'SELECT ID, id_billet, pseudo, commentaire FROM commentaires WHERE signaler = 1';
-    //$billetTotal = $sql->rowCount();
     $alertes = $this->executerRequete($sql);
     return $alertes;
   }
@@ -24,8 +23,8 @@ class Admin extends Modele {
   //Supprime les commentaires
   public function SupAlertes() {
   $suppr = $_GET['suppr'];
-  $sql = 'DELETE FROM commentaires WHERE ID = ?';
-  $this->executerRequete($sql, array($suppr));
+  $sql = 'DELETE FROM commentaires WHERE ID = ? OR parent_id = ?';
+  $this->executerRequete($sql, array($suppr, $suppr));
 
   }
 

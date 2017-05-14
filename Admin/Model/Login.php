@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Model/Modele.php';
+require_once 'Modele.php';
 
 
 class login extends Modele {
@@ -8,17 +8,16 @@ class login extends Modele {
   //Verifi session admin
   public function getLogin() {
 
-    $sql = 'SELECT * FROM user WHERE user = :user AND pass = :pass'; // on fait une requete preparer
-    $login = $this->executerRequete($sql, array('user' => $_POST['user'], 'pass' => $_POST['pass']
-    ));
-    $user = $login->fetchObject(); //on sauvegarde dans la variable user
-    if ($user) {
+    $sql = 'SELECT * FROM user WHERE user = :user'; // on fait une requete preparer
+    $req = $this->executerRequete($sql, array('user' => $_POST['user']));
+    $userReq = $req->fetch();
+    $password = $userReq['pass'];
+    $verifMdp = password_verify($_POST['pass'], $password);
+ 
+    if ($verifMdp == true AND !empty($userReq)) {
       //on donne la session
       $_SESSION['admin'] = $_POST['user'];
-    } else {
-        $message = 'Nom d\'utilisateur ou mot de passe incorrect !';
-        return $message;
-      }
+    } 
   }
 }
 

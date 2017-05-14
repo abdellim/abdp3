@@ -14,4 +14,4 @@
         <?php endif; ?>
       </form>
     </div>
-    <?php //var_dump($message); ?>
+    <?php //var_dump($user); ?>
