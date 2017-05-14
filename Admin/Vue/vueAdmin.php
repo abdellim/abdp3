@@ -45,7 +45,7 @@
                 <tr>
                     <td><?= $billet['titre'] ?></td>
                     <td style ="width : 35%"><?= substr($billet['contenu'], 0, 200) . "..." ?></td>
-                    <td><a class="btn btn-danger" href="index.php?supprimer=<?= $billet['id'] ?>" Onclick ="if(window.confirm('Voulez-vous vraiment supprimer cette épisode ?')){return true;}else{return false;}"><i class="fa fa-trash-o" aria-hidden="true"></i> Supprimer</a>
+                    <td><a class="btn btn-danger" href="index.php?supprimer=<?= $billet['id'] ?>" Onclick ="if(window.confirm('Voulez-vous vraiment supprimer cet épisode ?')){return true;}else{return false;}"><i class="fa fa-trash-o" aria-hidden="true"></i> Supprimer</a>
                         <a id="Bouton1" class="btn btn-info" href="index.php?modifier=<?= $billet['id'] ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Modifier</a></td>
                 </tr>
             <?php endforeach; ?>
