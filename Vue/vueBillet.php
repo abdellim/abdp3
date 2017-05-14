@@ -1,7 +1,7 @@
 <?php $this->titre = '- ' . $billet->titre; ?>
 <nav aria-label="...">
   <ul class="pager">
-    <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
+    <li class="previous"><a href="index.php"><span aria-hidden="true">&larr;</span> Retour à la liste des épisodes</a></li>
   
   </ul>
 </nav>
