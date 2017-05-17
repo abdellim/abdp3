@@ -39,9 +39,9 @@ class Routeur {
                         $this->ctrlAdmin->supprCom();
                     }
                     $this->ctrlAdmin->AcceuilAdm();
+                    unset($_SESSION['message']);
                 } else {
-                   
-                    $this->ctrlLogin->Connexion();   
+                    $this->ctrlLogin->Connexion();
                 }
             }
         

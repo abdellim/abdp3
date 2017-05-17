@@ -5,11 +5,12 @@
         <div class="alert alert-success" role="alert" style="margin-top: 60px; margin-bottom: -30px"><?php echo $message; ?>
           <span class="sr-only">Error:</span>
         </div>
-    <?php }?>
-    <div class="jumbotron" style=" margin-top: 55px;">  
+    <?php }?><div style="margin-top: 60px;"><button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo" aria-expended="false">Ajouter un épisode</button></div>
+    <div class="collapse" id="demo" style=" margin-top: 40px;">
+      <div class="jumbotron"> 
         <h2>Ajouter / Modifier un épisode</h2><hr>
-        <div id="tonDiv1">
-            <form method="POST" enctype="multipart/form-data">
+        <div id="jumbotron">
+            <form action = 'index.php' method="POST" enctype="multipart/form-data">
                 <?php if (isset($_GET['modifier'])) {?>
                 <input type="hidden" name="id" id="id" value="<?php echo $_GET['modifier'];?>"/>
                 <?php } ?>
@@ -28,55 +29,55 @@
             </form>
             <hr>
         </div>
+      </div> 
     </div>
-    <div class="jumbotron">
+    <div class="jumbotron" style=" margin-top: 25px;">
         <h2>Liste des épisodes</h2><hr>
         <table class="table table-hover">
             <thead>
-            <tr>
-                <th>Titre</th>
-                <th>Contenu</th>
-                <th>Action</th>
-            </tr>
+              <tr>
+                  <th>Titre</th>
+                  <th>Contenu</th>
+                  <th>Action</th>
+              </tr>
             </thead>
             <tbody>
-
-            <?php foreach ($billets as $billet): ?>
+              <?php foreach ($billets as $billet): ?>
                 <tr>
                     <td><?= $billet['titre'] ?></td>
                     <td style ="width : 35%"><?= substr($billet['contenu'], 0, 200) . "..." ?></td>
                     <td><a class="btn btn-danger" href="index.php?supprimer=<?= $billet['id'] ?>" Onclick ="if(window.confirm('Voulez-vous vraiment supprimer cet épisode ?')){return true;}else{return false;}"><i class="fa fa-trash-o" aria-hidden="true"></i> Supprimer</a>
-                        <a id="Bouton1" class="btn btn-info" href="index.php?modifier=<?= $billet['id'] ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Modifier</a></td>
+                    <a data-toggle="collapse" data-target="#demo" aria-expended="false" aria-controls="demo" class="btn btn-info" href="index.php?modifier=<?= $billet['id'] ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Modifier</a></td>
                 </tr>
-            <?php endforeach; ?>
+              <?php endforeach; ?>
             </tbody>
         </table>
     </div>
     <div class="jumbotron" style = "<?php if ($compteAlerte == 0) { echo 'display : none'; }?>">
-        <h2>Commentaires signalés</h2><hr>
-        <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>Episode</th>
-                  <th>Pseudo</th>
-                  <th>Commentaire</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <?php foreach ($alertes as $alerte): ?>
-              <tbody>
-              <tr>
-                <td><?= $alerte['id_billet'] ?></td>
-                <td><?= $alerte['pseudo'] ?></td>
-                <td><?= $alerte['commentaire'] ?></td>
-                <td>
-                    <a class="btn btn-danger" id=<?= $alerte['ID'] ?> href="index.php?suppr=<?= $alerte['ID'] ?>" Onclick ="if(window.confirm('Voulez-vous vraiment supprimer ce commentaire ?\nLes réponses seront également supprimer !')){return true;}else{return false;}"><i class="fa fa-trash-o" aria-hidden="true"></i> Supprimer</a> 
-                    <a class="btn btn-info" href="index.php?valide=<?= $alerte['ID'] ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Valider</a>
-                </td>
-              </tr>
-              </tbody>
-              <?php endforeach; ?>
-        </table>
+      <h2>Commentaires signalés</h2><hr>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Episode</th>
+            <th>Pseudo</th>
+            <th>Commentaire</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <?php foreach ($alertes as $alerte): ?>
+        <tbody>
+          <tr>
+            <td><?= $alerte['id_billet'] ?></td>
+            <td><?= $alerte['pseudo'] ?></td>
+            <td><?= $alerte['commentaire'] ?></td>
+            <td>
+              <a class="btn btn-danger" id=<?= $alerte['ID'] ?> href="index.php?suppr=<?= $alerte['ID'] ?>" Onclick ="if(window.confirm('Voulez-vous vraiment supprimer ce commentaire ?\nLes réponses seront également supprimer !')){return true;}else{return false;}"><i class="fa fa-trash-o" aria-hidden="true"></i> Supprimer</a> 
+              <a class="btn btn-info" href="index.php?valide=<?= $alerte['ID'] ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Valider</a>
+            </td>
+          </tr>
+        </tbody>
+        <?php endforeach; ?>
+      </table>
     </div>
   </div>
 </div> 

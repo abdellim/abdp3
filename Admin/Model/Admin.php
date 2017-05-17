@@ -58,7 +58,6 @@ class Admin extends Modele {
   //Affiche un episode à modifier
   public function edit(){
 
-    //$_GET['modifier'] = htmlspecialchars($_GET['modifier']); sert à rien???
     $sql = 'SELECT * FROM billets WHERE id = ?';
     $modifArticle = $this->executerRequete($sql, array($_GET['modifier']));
     //verifi si l'article existe
