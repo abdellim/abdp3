@@ -5,7 +5,7 @@
         <div class="alert alert-success" role="alert" style="margin-top: 60px; margin-bottom: -30px"><?php echo $message; ?>
           <span class="sr-only">Error:</span>
         </div>
-    <?php }?><div style="margin-top: 60px;"><button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo" aria-expended="false">Ajouter un épisode</button></div>
+    <?php }?><div style="margin-top: 60px;"><a href="index.php?#demo" class="btn btn-info" data-toggle="collapse" data-target="#demo" aria-expended="true">Ajouter un épisode</a></div>
     <div class="collapse" id="demo" style=" margin-top: 40px;">
       <div class="jumbotron"> 
         <h2>Ajouter / Modifier un épisode</h2><hr>
@@ -45,9 +45,9 @@
               <?php foreach ($billets as $billet): ?>
                 <tr>
                     <td><?= $billet['titre'] ?></td>
-                    <td style ="width : 35%"><?= substr($billet['contenu'], 0, 200) . "..." ?></td>
+                    <td style ="width : 35%"><?= substr($billet['contenu'], 0, 100) . "..." ?></td>
                     <td><a class="btn btn-danger" href="index.php?supprimer=<?= $billet['id'] ?>" Onclick ="if(window.confirm('Voulez-vous vraiment supprimer cet épisode ?')){return true;}else{return false;}"><i class="fa fa-trash-o" aria-hidden="true"></i> Supprimer</a>
-                    <a data-toggle="collapse" data-target="#demo" aria-expended="false" aria-controls="demo" class="btn btn-info" href="index.php?modifier=<?= $billet['id'] ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Modifier</a></td>
+                    <a data-toggle="collapse" data-target="#demo" aria-expended="false" aria-controls="demo" class="btn btn-info" href="index.php?modifier=<?= $billet['id'] ?>#demo"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Modifier</a></td>
                 </tr>
               <?php endforeach; ?>
             </tbody>
