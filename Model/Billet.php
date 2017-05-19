@@ -4,12 +4,17 @@ require_once 'Modele.php';
 
 class Billet extends Modele{
 
-    //Renvoi la liste de tous les billets
-  public function getBillets() {
-    $sql = 'select ID as id, DATE_FORMAT(date_creation, "%d/%m/%Y à %Hh%imin%ss") as date, titre, image, contenu from billets LIMIT 0,5';
-    //$billetTotal = $sql->rowCount();
+  //Renvoi la liste de tous les billets
+  public function getBillets($depart, $billetParPage) {
+    $sql = 'select ID as id, DATE_FORMAT(date_creation, "%d/%m/%Y à %Hh%imin%ss") as date, titre, image, contenu from billets LIMIT '.$depart. ' , ' .$billetParPage;
     $billets = $this->executerRequete($sql);
     return $billets;
+  }
+  // PAGINATION
+  public function nbreDeBillet() {
+    $sql = 'SELECT * FROM billets';
+    $billetTotal = $this->executerRequete($sql);
+    return $billetTotal;
   }
 
 
@@ -22,14 +27,5 @@ class Billet extends Modele{
     else
      throw new Exception("Aucun billet ne correspond à l'identifiant '$idBillet'");
   }
-/*
-  public function UnePagination($pagin){
-    $billetParPage = 3;
-
-    $sql = 'SELECT ID FROM billets';
-    $NbreBillet = $this->rowCount();
-    $this->executerRequete($sql, array($pagin));
-    var_dump($NbreBillet);
-  }*/
 
 }

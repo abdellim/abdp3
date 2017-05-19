@@ -2,7 +2,6 @@
 <nav aria-label="...">
   <ul class="pager">
     <li class="previous"><a href="index.php"><span aria-hidden="true">&larr;</span> Retour à la liste des épisodes</a></li>
-  
   </ul>
 </nav>
 <div class="jumbotron" style="background-color: #FCFAE1">
@@ -18,13 +17,12 @@
 </div>
 <hr />
 <div class="jumbotron">
- 
     <form action="#" id="form-comment" method="post">
       <input type="hidden" name="parent_id" value="0" id="parent_id">
       <input type="hidden" name="id" value="<?= $billet->ID ?>" />
       <h4>Poster un commentaire</h4>
       <div class="form-group">
-        <input name="pseudo" id="pseudo" class="form-control" placeholder="Votre pseudo" required>      
+        <input name="pseudo" id="pseudo" class="form-control" placeholder="Votre pseudo" required>
       </div>
       <div class="form-group">
         <textarea name="content" id="content" class="form-control" placeholder="Votre commentaire" required></textarea>      
@@ -36,7 +34,6 @@
 </div>
     <?php
       if (isset($message) && !empty(($message))) { ?>
-
         <div class="alert alert-success" role="alert"><?php echo $message; ?>
           <span class="sr-only">Error:</span>
         </div>
@@ -50,15 +47,13 @@ foreach ($commentaires as $comment ) {
           $commentaireParId[$comment->ID] = $comment;
         }
         foreach ($commentaires as $k => $comment) {
-          //verif si c'est une rep
+          //verif si c'est une réponse
           if ($comment->parent_id != 0) {
             $commentaireParId[$comment->parent_id]->children[] = $comment;
             //on sort les commentaires du tableaux commentaires 
             unset($commentaires[$k]);
           }
         }?>
-
-
 
 <?php foreach ($commentaires as $comment): ?> 
     <div class="jumbotron">
@@ -103,28 +98,3 @@ foreach ($commentaires as $comment ) {
         <?php endforeach ?>
       <?php endif; ?>
     <?php endforeach; ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php /*foreach ($commentaires as $commentaire): ?>
-  <div class="jumbotron">
-  <p><?= $commentaire->date ?> :</p> <?= $commentaire->auteur ?> dit :</p>
-  <p><?= $commentaire->contenu ?></p>
-  <a class="btn btn-danger" href="index.php?action=signaler&commentaire=<?= $commentaire->ID ?>&id=<?= $commentaire->id_billet ?>" name="id" value="<?= $commentaire->id_billet ?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Signaler</a> 
-  <a class="btn btn-info" href="index.php?repondre=<?= $commentaire->ID ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Répondre</a>
-  </div><?php //var_dump($commentaires) ?>
-<?php endforeach; */?>
-
-

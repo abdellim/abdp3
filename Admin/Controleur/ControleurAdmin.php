@@ -13,9 +13,8 @@ class ControleurAdmin {
     }
 
     public function editEpisode($title, $body, $id) {
-          $this->admin->edit_post($title, $body, $id);
-          //header('location: index.php');
-          $this->message = 'L\'épisode à bien été modifier ! ';
+      $this->admin->edit_post($title, $body, $id);
+      $this->message = 'L\'épisode à bien été modifier ! ';
     }
 
     public function suppEpisode() {
@@ -26,7 +25,6 @@ class ControleurAdmin {
     public function validCom() {
       $this->admin->ValAlertes();
       $this->message = 'Le commentaire à bien été valider !';
-        
     }
 
     public function supprCom() {
@@ -36,7 +34,6 @@ class ControleurAdmin {
 
     //AFFICHE LA VUE ADMIN
     public function AcceuilAdm() {
-      
       
       //AFFICHE L'EPISODE A MODIFIER
       if (isset($_GET['modifier']) && !empty($_GET['modifier'])) {
@@ -62,20 +59,35 @@ class ControleurAdmin {
           }else {
               $this->message = 'Merci de remplir tous les champs !';
           }
+      }
+
+// PAGINATION
+      $billetTotal = $this->admin->nbreDeBillet()->rowCount(); //compte le nombre de billet
+      $billetParPage = 3;
+      $pageTotal = ceil($billetTotal/$billetParPage); // nombre de page
+      //On vérifie si la varible de page existe ou non
+      if (isset($_GET['page']) && !empty($_GET['page']) && $_GET['page'] > 0 && $_GET['page'] <= $pageTotal) {
+          $_GET['page'] = intval($_GET['page']); //sécurise la variable (pour avoir que des chiffres)
+          $pageCourante = $_GET['page'];
+      } else { //si cette variable n'est pas defini ou vide
+          $pageCourante = 1; // on se retrouvera sur la 1ere page
       } 
-      $billets = $this->admin->getBillets();
-      $billetTotal = $billets->rowCount(); // On recupère le nombre de billet
+      $depart = ($pageCourante-1)*$billetParPage; // pour la limit
+// END PAGINATION
+
+      $billets = $this->admin->getBillets($depart, $billetParPage);
       $alertes = $this->admin->getAlertes();
       $compteAlerte = $alertes->rowCount();
       unset($_POST);
       $vue = new Vue("Admin");
       $vue->generer(array(
         'billets' => $billets,
-        'billetTotal' => $billetTotal, 
+        'billetTotal' => $billetTotal,
+        'pageTotal' => $pageTotal,
+        'pageCourante' =>$pageCourante,
         'alertes' => $alertes,
         'message' => $this->message,
         'compteAlerte' => $compteAlerte, 
-        'modifArticle' => $this->modifArticle));
-
+        'modifArticle' => $this->modifArticle)); 
   }
 }

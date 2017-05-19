@@ -52,7 +52,7 @@
               <?php endforeach; ?>
             </tbody>
         </table>
-    </div>
+        <?php include 'Include/pagination.php'; ?>
     <div class="jumbotron" style = "<?php if ($compteAlerte == 0) { echo 'display : none'; }?>">
       <h2>Commentaires signalés</h2><hr>
       <table class="table table-hover">

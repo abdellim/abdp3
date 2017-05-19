@@ -14,5 +14,9 @@
       <a class="btn btn-default" href="<?= "index.php?action=billet&id=" . $billet->id ?>" role="button">Voir plus</a>
         <hr />
     </div>
-
 <?php endforeach; ?>
+<div class="row">
+  <div class="col-sm-12"><?php include 'admin/include/pagination.php';?></div>
+
+
+</div>
