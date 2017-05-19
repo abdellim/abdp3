@@ -8,7 +8,7 @@
 <article>
   <header style="text-align: center;">
   <img class="featurette-image img-responsive center-block" src="<?= $billet->image; ?>" alt="Generic placeholder image">
-    <h1 class="lead" style="color: green;"><?= $billet->titre ?></h1>
+    <h1 class="" style="color: green;"><?= $billet->titre ?></h1>
     <p>Publié le <?= $billet->date ?></p>
   </header>
   <hr>
