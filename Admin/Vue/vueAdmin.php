@@ -5,8 +5,8 @@
         <div class="alert alert-success" role="alert" style="margin-top: 60px; margin-bottom: -30px"><?php echo $message; ?>
           <span class="sr-only">Error:</span>
         </div>
-    <?php }?><div style="margin-top: 60px;"><a href="index.php?#demo" class="btn btn-info" data-toggle="collapse" data-target="#demo" aria-expended="true">Ajouter un épisode</a></div>
-    <div class="collapse" id="demo" style=" margin-top: 40px;">
+    <?php }?><div style="margin-top: 60px;"><button class="btn btn-info" data-toggle="collapse" data-target="#demo" aria-expended="<?php if (isset($_GET['modifier'])) { echo "true"; }else{echo "false";}?>">Ajouter un épisode</button></div>
+    <div class="collapse <?php if (isset($_GET['modifier'])) { echo "in"; }?>"" id="demo" style=" margin-top: 40px;" aria-expended="<?php if (isset($_GET['modifier'])) { echo "true"; }else{echo "false";}?>">
       <div class="jumbotron"> 
         <h2>Ajouter / Modifier un épisode</h2><hr>
         <div id="jumbotron">

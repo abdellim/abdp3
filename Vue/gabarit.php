@@ -4,7 +4,7 @@
   <body>
     <?php require 'Include/Nav.php'; ?>
     
-    <?php require 'Include/Slide.php'; ?>
+    <?php require_once 'Include/Slide.php'; ?>
     <div class="container">
       <div class="starter-template" style="padding-top: 40px;">
         <div class="row">
