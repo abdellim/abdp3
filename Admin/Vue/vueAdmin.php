@@ -5,7 +5,7 @@
         <div class="alert alert-success" role="alert" style="margin-top: 60px; margin-bottom: -30px"><?php echo $message; ?>
           <span class="sr-only">Error:</span>
         </div>
-    <?php }?><div style="margin-top: 60px;"><button class="btn btn-info" data-toggle="collapse" data-target="#demo" aria-expended="<?php if (isset($_GET['modifier'])) { echo "true"; }else{echo "false";}?>">Ajouter un épisode</button></div>
+    <?php }?><div style="margin-top: 60px;"><button class="btn btn-primary" data-toggle="collapse" data-target="#demo" aria-expended="<?php if (isset($_GET['modifier'])) { echo "true"; }else{echo "false";}?>">Ajouter un épisode</button></div>
     <div class="collapse <?php if (isset($_GET['modifier'])) { echo "in"; }?>"" id="demo" style=" margin-top: 40px;" aria-expended="<?php if (isset($_GET['modifier'])) { echo "true"; }else{echo "false";}?>">
       <div class="jumbotron"> 
         <h2>Ajouter / Modifier un épisode</h2><hr>
@@ -25,7 +25,7 @@
                 <label class="">
                 <span class="fileupload-new"><input class="btn btn-default btn-file" type="file" id="image" name="fichier" /></span>
                 </label>
-                <input class="btn btn-info" type="submit" name="add_submit" value="Ajouter" /> <a class="btn btn-success" href="index.php"><i class="fa fa-undo" aria-hidden="true"></i> Annuler</a>
+                <input class="btn btn-info" type="submit" name="add_submit" value="Ajouter" /> <a class="btn btn-danger" href="index.php"><i class="fa fa-undo" aria-hidden="true"></i> Annuler</a>
             </form>
             <hr>
         </div>
@@ -52,6 +52,7 @@
               <?php endforeach; ?>
             </tbody>
         </table>
+    </div>
         <?php include 'Include/pagination.php'; ?>
     <div class="jumbotron" style = "<?php if ($compteAlerte == 0) { echo 'display : none'; }?>">
       <h2>Commentaires signalés</h2><hr>
@@ -67,7 +68,7 @@
         <?php foreach ($alertes as $alerte): ?>
         <tbody>
           <tr>
-            <td><?= $alerte['id_billet'] ?></td>
+            <td><?= $alerte['titre'] ?></td>
             <td><?= $alerte['pseudo'] ?></td>
             <td><?= $alerte['commentaire'] ?></td>
             <td>
@@ -79,5 +80,4 @@
         <?php endforeach; ?>
       </table>
     </div>
-  </div>
 </div> 

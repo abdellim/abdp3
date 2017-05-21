@@ -21,7 +21,7 @@ class Admin extends Modele {
 
   //Affiche les alertes
   public function getAlertes() {
-    $sql = 'SELECT ID, id_billet, pseudo, commentaire FROM commentaires WHERE signaler = 1';
+    $sql = 'SELECT * FROM billets INNER JOIN commentaires WHERE billets.ID = commentaires.id_billet AND commentaires.signaler = 1';
     $alertes = $this->executerRequete($sql);
     return $alertes;
   }
