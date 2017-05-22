@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 19 Mai 2017 à 15:35
+-- Généré le :  Dim 21 Mai 2017 à 21:09
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -61,13 +61,6 @@ CREATE TABLE `commentaires` (
   `signaler` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Contenu de la table `commentaires`
---
-
-INSERT INTO `commentaires` (`ID`, `parent_id`, `pseudo`, `commentaire`, `id_billet`, `date_creation`, `signaler`) VALUES
-(6, 0, 'John', 'super', 151, '2017-05-19 07:55:24', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -118,12 +111,12 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `billets`
 --
 ALTER TABLE `billets`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=187;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=188;
 --
 -- AUTO_INCREMENT pour la table `commentaires`
 --
 ALTER TABLE `commentaires`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT pour la table `user`
 --

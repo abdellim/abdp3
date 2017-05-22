@@ -16,7 +16,6 @@ class ControleurBillet {
     // Sauvegarde du commentaire
     $this->commentaire->ajouterCommentaire($auteur, $contenu, $idBillet, $parent_id);
     $this->message = 'Merci pour votre commentaire !';
-    // Actualisation de l'affichage du billet
   }
 
     //Signaler commentaire
